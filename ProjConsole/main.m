@@ -92,7 +92,77 @@ int game(User* u)
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         User *teste = [[User alloc] initWithName:@"Teste"];
-        game(teste);
+        int option;
+        printf("Bem-Vindo, ao MELHOR GENIUS CONSOLE ;D\n\n");
+        printf("(1)Criar Usuário  (0)SAIR\n");
+        
+        scanf("%i", &option);
+        
+        
+        
+        while (option != 0) {
+            
+            switch(option)
+            
+            {
+                    
+                case 0:
+                    
+                    printf("Obrigado por Jogar, volte sempre!\n");
+                    
+                    return 0;
+                    
+                    break;
+                    
+                case 1: // Criar Usuário
+                    
+                    printf("Nome: ");
+                    
+                    //                    scanf("%s",str);
+                    
+                    break;
+                    
+                case 2: // Jogar
+                    
+                    printf("Vamos Jogar :\n)");
+                    game(teste);
+                    
+                    //Chamar o jogo
+                    
+                    break;
+                    
+                case 3: // Ranking
+                    
+                    printf("Ranking\n");
+                    
+                    // Chamar o ranking
+                    
+                    break;
+                    
+                case 4: // Trocar de Usuário
+                    
+                    // Chamar a troca de usuário
+                    
+                    break;
+                    
+                default: // Numero errado...
+                    
+                    printf("Número Inválido! Digite novamente!\n");
+                    
+                    break;
+                    
+            }
+            
+            
+            
+            printf("\nSelecione sua opção:\n");
+            
+            printf("(1)Criar Usuário (2)Jogar (3)Ranking (4)Trocar Usuario (0)Sair\n");
+            
+            scanf("%i", &option);
+        
+        }
+        printf("Obrigado por Jogar, volte sempre!\n");
     }
     return 0;
 }
