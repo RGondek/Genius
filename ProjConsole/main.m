@@ -21,11 +21,10 @@ int game(User* u)
 //    opcoes 1, 2, 3, 4
   
     while (1) {
+        
         // Random
-    
         
         for (int i = 0; i < k; i++) {
-            
             if (i == k-1) {
                 int ran = arc4random() % 4;
                 switch (ran) {
@@ -51,8 +50,9 @@ int game(User* u)
             
             
             NSLog(@"%@",[fila1 Ler]);
-            [NSThread sleepForTimeInterval:2];
-            printf("\n\n\n\n\n\n\n\n\n");
+            //printf("%@", [fila1 Ler]);
+            [NSThread sleepForTimeInterval:1.5];
+            printf("\n\n\n\n\n\n\n\n\n\n\n");
             [fila2 Enfileirar:[fila1 Ler]];
             [fila1 Desenfileirar];
         }
@@ -84,91 +84,70 @@ int game(User* u)
                 return k;
             }
         }
-        printf("\n\n\n\n\n\n\n\n\n");
+        printf("\n\n\n\n\n\n\n\n\n\n\n\n");
         k++;
-        
-       
     }
-    
-    
-    
-    
 }
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        User *teste = [[User alloc] initWithName:@"Teste"];
+        User *usuario;
+        char aux[20];
         int option;
+        
         printf("Bem-Vindo, ao MELHOR GENIUS CONSOLE ;D\n\n");
-        printf("(1)Criar Usuário  (0)SAIR\n");
+        printf("(1)Criar Usuário\n(0)SAIR\n");
         
         scanf("%i", &option);
         
-        
-        
         while (option != 0) {
-            
-            switch(option)
-            
-            {
+            switch(option){
                     
-                case 0:
-                    
-                    printf("Obrigado por Jogar, volte sempre!\n");
-                    
+                case 0:{
+                    printf("\n\nObrigado por Jogar, volte sempre!\n\n");
                     return 0;
-                    
                     break;
+                }
                     
-                case 1: // Criar Usuário
-                    
+                case 1:{ // Criar Usuário
                     printf("Nome: ");
-                    
-                    //                    scanf("%s",str);
-                    
+                    scanf("%s", aux);
+                    NSString *nome = [[NSString alloc] initWithCString:aux encoding:NSASCIIStringEncoding];
+                    usuario = [[User alloc] initWithName:nome];
+                    //scanf("%s",str);
                     break;
+                }
                     
-                case 2: // Jogar
-                    
-                    printf("Vamos Jogar :\n)");
-                    game(teste);
-                    
+                case 2:{ // Jogar
+                    printf("\n\n\n\n\n\nVamos Jogar :\n");
+                    game(usuario);
+                    printf("\nVocê PERDEEEU!!!\n\n\n LOSER! \n LOSER! \n LOSER! \n\n\n");
                     //Chamar o jogo
-                    
                     break;
+                }
                     
-                case 3: // Ranking
-                    
+                case 3:{ // Ranking
                     printf("Ranking\n");
-                    
                     // Chamar o ranking
-                    
                     break;
+                }
                     
-                case 4: // Trocar de Usuário
-                    
+                case 4:{ // Trocar de Usuário
                     // Chamar a troca de usuário
-                    
                     break;
+                }
                     
-                default: // Numero errado...
-                    
+                default:{ // Numero errado...
                     printf("Número Inválido! Digite novamente!\n");
-                    
                     break;
-                    
+                }
             }
             
-            
-            
             printf("\nSelecione sua opção:\n");
-            
-            printf("(1)Criar Usuário (2)Jogar (3)Ranking (4)Trocar Usuario (0)Sair\n");
-            
+            printf("(1)Criar Usuário\n(2)Jogar\n(3)Ranking\n(4)Trocar Usuario\n(0)Sair\n");
             scanf("%i", &option);
-        
         }
-        printf("Obrigado por Jogar, volte sempre!\n");
+        printf("\n\nObrigado por Jogar, volte sempre!\n\n");
     }
     return 0;
 }
