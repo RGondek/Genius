@@ -14,7 +14,7 @@
 
 -(void)Enfileirar:(NSObject*)elem;
 -(id)init;
--(instancetype) initWithRandon:(int)elem;
+//-(instancetype) initWithRandon:(int)elem;
 -(void)Desenfileirar;
 -(NSObject*)Ler;
 -(BOOL)Vazio;

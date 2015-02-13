@@ -21,29 +21,35 @@ int game(User* u)
 //    opcoes 1, 2, 3, 4
   
     while (1) {
-        int ran = arc4random() % 4;
+        // Random
+    
+        
         for (int i = 0; i < k; i++) {
             
-            
-            
-            switch (ran) {
-                case 0:
-                    color = @"Amarelo(0)";
-                    break;
-                case 1:
-                    color = @"Azul(1)";
-                    break;
-                case 2:
-                    color = @"Verde(2)";
-                    break;
-                case 3:
-                    color = @"Vermelho(3)";
-                    break;
-                default:
-                    break;
+            if (i == k-1) {
+                int ran = arc4random() % 4;
+                switch (ran) {
+                    case 0:
+                        color = @"Amarelo(0)";
+                        break;
+                    case 1:
+                        color = @"Azul(1)";
+                        break;
+                    case 2:
+                        color = @"Verde(2)";
+                        break;
+                    case 3:
+                        color = @"Vermelho(3)";
+                        break;
+                    default:
+                        break;
+                }
+                [fila1 Enfileirar:color];
             }
-
-            [fila1 Enfileirar:color];
+            
+            // random só deve ser executado quando i == k-1
+            
+            
             NSLog(@"%@",[fila1 Ler]);
             [NSThread sleepForTimeInterval:2];
             printf("\n\n\n\n\n\n\n\n\n");
