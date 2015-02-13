@@ -244,6 +244,7 @@
 				D555AD621A8E62F600FEE59C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
