@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D555AD5D1A8E62F600FEE59C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D555AD5C1A8E62F600FEE59C /* main.m */; };
+		D555AD651A8E635A00FEE59C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D555AD641A8E635A00FEE59C /* User.m */; };
+		D555AD681A8E639100FEE59C /* Fila.m in Sources */ = {isa = PBXBuildFile; fileRef = D555AD671A8E639100FEE59C /* Fila.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,10 @@
 /* Begin PBXFileReference section */
 		D555AD591A8E62F600FEE59C /* ProjConsole */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ProjConsole; sourceTree = BUILT_PRODUCTS_DIR; };
 		D555AD5C1A8E62F600FEE59C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D555AD631A8E635A00FEE59C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		D555AD641A8E635A00FEE59C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		D555AD661A8E639100FEE59C /* Fila.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fila.h; sourceTree = "<group>"; };
+		D555AD671A8E639100FEE59C /* Fila.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fila.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				D555AD5C1A8E62F600FEE59C /* main.m */,
+				D555AD661A8E639100FEE59C /* Fila.h */,
+				D555AD671A8E639100FEE59C /* Fila.m */,
+				D555AD631A8E635A00FEE59C /* User.h */,
+				D555AD641A8E635A00FEE59C /* User.m */,
 			);
 			path = ProjConsole;
 			sourceTree = "<group>";
@@ -118,6 +128,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D555AD681A8E639100FEE59C /* Fila.m in Sources */,
+				D555AD651A8E635A00FEE59C /* User.m in Sources */,
 				D555AD5D1A8E62F600FEE59C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
