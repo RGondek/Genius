@@ -93,7 +93,7 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         User *usuario;
         char aux[20];
-        int option;
+        int option, score;
         
         printf("Bem-Vindo, ao MELHOR GENIUS CONSOLE ;D\n\n");
         printf("(1)Criar Usuário\n(0)SAIR\n");
@@ -120,8 +120,13 @@ int main(int argc, const char * argv[]) {
                     
                 case 2:{ // Jogar
                     printf("\n\n\n\n\n\nVamos Jogar :\n");
-                    game(usuario);
+                    score = game(usuario);
+                    score--;
+                    printf("Score: %d", score);
                     printf("\nVocê PERDEEEU!!!\n\n\n LOSER! \n LOSER! \n LOSER! \n\n\n");
+                    if (score > usuario.score){
+                        usuario.score = score;
+                    }
                     //Chamar o jogo
                     break;
                 }
