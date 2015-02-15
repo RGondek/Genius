@@ -94,6 +94,7 @@ int main(int argc, const char * argv[]) {
         User *usuario;
         char aux[20];
         int option, score;
+        int qtdJogadas = 0;
         
         printf("Bem-Vindo, ao MELHOR GENIUS CONSOLE ;D\n\n");
         printf("(1)Criar Usuário\n(0)SAIR\n");
@@ -110,6 +111,7 @@ int main(int argc, const char * argv[]) {
                 }
                     
                 case 1:{ // Criar Usuário
+                    qtdJogadas = 0;
                     printf("Nome: ");
                     scanf("%s", aux);
                     NSString *nome = [[NSString alloc] initWithCString:aux encoding:NSASCIIStringEncoding];
@@ -119,6 +121,7 @@ int main(int argc, const char * argv[]) {
                 }
                     
                 case 2:{ // Jogar
+                    qtdJogadas++;
                     printf("\n\n\n\n\n\nVamos Jogar :\n");
                     score = game(usuario);
                     score--;
@@ -127,21 +130,30 @@ int main(int argc, const char * argv[]) {
                     if (score > usuario.score){
                         usuario.score = score;
                     }
-                    //Chamar o jogo
                     break;
                 }
                     
                 case 3:{ // Ranking
-                    printf("Ranking\n");
-                    // Chamar o ranking
+                    printf("Ranking: %d", usuario.score);
                     break;
                 }
                     
                 case 4:{ // Trocar de Usuário
                     // Chamar a troca de usuário
+                    qtdJogadas = 0;
+                    printf("Nome: ");
+                    scanf("%s", aux);
+                    NSString *nome = [[NSString alloc] initWithCString:aux encoding:NSASCIIStringEncoding];
+                    usuario = [[User alloc] initWithName:nome];
+                    //scanf("%s",str);
+
                     break;
                 }
-                    
+            
+                case 5: { //Mostrar quantas vezes o usuário jogou
+                    printf("Quantidade de vezes que jogou: %d", qtdJogadas);
+                    break;
+                }
                 default:{ // Numero errado...
                     printf("Número Inválido! Digite novamente!\n");
                     break;
@@ -149,10 +161,11 @@ int main(int argc, const char * argv[]) {
             }
             
             printf("\nSelecione sua opção:\n");
-            printf("(1)Criar Usuário\n(2)Jogar\n(3)Ranking\n(4)Trocar Usuario\n(0)Sair\n");
+            printf("(1)Criar Usuário\n(2)Jogar\n(3)Ranking\n(4)Trocar Usuario\n(5)Quantidade de vezes que jogou\n(0)Sair\n");
             scanf("%i", &option);
         }
         printf("\n\nObrigado por Jogar, volte sempre!\n\n");
     }
     return 0;
 }
+
