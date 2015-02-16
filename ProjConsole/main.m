@@ -6,11 +6,15 @@
 //  Copyright (c) 2015 Ckode. All rights reserved.
 //
 
+
+//Explicação para o uso da estrutura de dados Fila:
+//Como o intuito do jogo é fazer os dados(cores e seus numeros) apresentados ao usuario em um determinado jogo tivesse sempre a mesma ordem independente da jogada, vimos que a estrutura fila é melhor pois o primeiro dado enfileirado é o primeiro dado que será desenfileirado. E com isso garantimos que os dados sigam durante todas as jogadas do jogo a mesma sequencia.
+
 #import <Foundation/Foundation.h>
 #import "User.h"
 #import "Fila.h"
 
-int game(User* u)
+int game(User* usuario)
 {
     Fila *fila1 = [[Fila alloc] init];
     Fila *fila2 = [[Fila alloc] init];
@@ -49,7 +53,7 @@ int game(User* u)
             // random só deve ser executado quando i == k-1
             
             
-            NSLog(@"%@",[fila1 Ler]);
+            NSLog(@"\n%@",[fila1 Ler]);
             //printf("%@", [fila1 Ler]);
             [NSThread sleepForTimeInterval:1.5];
             printf("\n\n\n\n\n\n\n\n\n\n\n");
@@ -112,7 +116,7 @@ int main(int argc, const char * argv[]) {
                     
                 case 1:{ // Criar Usuário
                     qtdJogadas = 0;
-                    printf("Nome: ");
+                    printf("------------\n| Nome:  | \n------------");
                     scanf("%s", aux);
                     NSString *nome = [[NSString alloc] initWithCString:aux encoding:NSASCIIStringEncoding];
                     usuario = [[User alloc] initWithName:nome];
@@ -125,7 +129,7 @@ int main(int argc, const char * argv[]) {
                     printf("\n\n\n\n\n\nVamos Jogar :\n");
                     score = game(usuario);
                     score--;
-                    printf("Score: %d", score);
+                    printf("------------\n| Score: %d | \n------------", score);
                     printf("\nVocê PERDEEEU!!!\n\n\n LOSER! \n LOSER! \n LOSER! \n\n\n");
                     if (score > usuario.score){
                         usuario.score = score;
@@ -133,15 +137,15 @@ int main(int argc, const char * argv[]) {
                     break;
                 }
                     
-                case 3:{ // Ranking
-                    printf("Ranking: %d", usuario.score);
+                case 3:{ // Record
+                    printf("------------\n| Record: %d | \n------------", usuario.score);
                     break;
                 }
                     
                 case 4:{ // Trocar de Usuário
                     // Chamar a troca de usuário
                     qtdJogadas = 0;
-                    printf("Nome: ");
+                    printf("------------\n| Nome:  | \n------------");
                     scanf("%s", aux);
                     NSString *nome = [[NSString alloc] initWithCString:aux encoding:NSASCIIStringEncoding];
                     usuario = [[User alloc] initWithName:nome];
@@ -151,7 +155,7 @@ int main(int argc, const char * argv[]) {
                 }
             
                 case 5: { //Mostrar quantas vezes o usuário jogou
-                    printf("Quantidade de vezes que jogou: %d", qtdJogadas);
+                    printf("-----------------------------------\n| Quantidade de vezes que jogou: %d |\n-----------------------------------", qtdJogadas);
                     break;
                 }
                 default:{ // Numero errado...
@@ -161,7 +165,7 @@ int main(int argc, const char * argv[]) {
             }
             
             printf("\nSelecione sua opção:\n");
-            printf("(1)Criar Usuário\n(2)Jogar\n(3)Ranking\n(4)Trocar Usuario\n(5)Quantidade de vezes que jogou\n(0)Sair\n");
+            printf("(1)Criar Usuário\n(2)Jogar\n(3)Record\n(4)Trocar Usuario\n(5)Quantidade de vezes que jogou\n(0)Sair\n");
             scanf("%i", &option);
         }
         printf("\n\nObrigado por Jogar, volte sempre!\n\n");
