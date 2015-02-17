@@ -96,12 +96,55 @@ int game(User* usuario)
     }
 }
 
+NSMutableArray *users;
+
+User* getUser(NSString *nome){
+    for (User *us in users) {
+        if (us.name == nome){
+            MDLog(@"O usuario <%@> foi selecionado!", nome);
+            return us;
+        }
+    }
+    User *usua = [[User alloc] initWithName:nome];
+    [users addObject:usua];
+    MDLog(@"O usuario <%@> foi criado!", nome);
+    return usua;
+}
+
+void printRank(User *us){
+    NSArray *sortArray = [[NSArray alloc] initWithArray:users];
+    NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:@"score" ascending:NO];
+    sortArray = [sortArray sortedArrayUsingDescriptors:@[sd]];
+    printf("|--------------------------------|\n");
+    for (User *usua in sortArray) {
+        if (usua == us){
+            MDLog(@"|  You -> %@ : %d            \n", usua.name, usua.score);
+        }else{
+            MDLog(@"|         %@ : %d            \n", usua.name, usua.score);
+        }
+    }
+    printf("|--------------------------------|\n");
+
+}
+
+void printUsers(User *us){
+    printf("|--------------------------------|\n");
+    for (User *usua in users) {
+        if (usua == us){
+            MDLog(@"|  You -> %@           \n", usua.name);
+        }else{
+            MDLog(@"|         %@           \n", usua.name);
+        }
+    }
+    printf("|--------------------------------|\n");
+}
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         User *usuario;
+        users = [[NSMutableArray alloc] init];
         char aux[20];
         int option, score;
-        int qtdJogadas = 0;
         
         printf("\n");
         printf("|--------------------------------|\n");
@@ -129,17 +172,14 @@ int main(int argc, const char * argv[]) {
                 }
                     
                 case 1:{ // Criar Usuário
-                    qtdJogadas = 0;
                     printf("\nNome: ");
                     scanf("%s", aux);
                     NSString *nome = [[NSString alloc] initWithCString:aux encoding:NSASCIIStringEncoding];
-                    usuario = [[User alloc] initWithName:nome];
-                    //scanf("%s",str);
+                    usuario = getUser(nome);
                     break;
                 }
                     
                 case 2:{ // Jogar
-                    qtdJogadas++;
                     printf("\n\n\n\n\n\nVamos Jogar :\n");
                     score = game(usuario);
                     score--;
@@ -152,34 +192,28 @@ int main(int argc, const char * argv[]) {
                     printf("|--------------------------------|\n");
                     printf("|            Score: %d            |\n", score);
                     printf("|--------------------------------|\n");
-                    if (score > usuario.score){
-                        usuario.score = score;
-                    }
+                    [usuario gameScore:score];
                     break;
                 }
                     
                 case 3:{ // Recorde
-                    printf("|--------------------------------|\n");
-                    printf("|         Recorde: %d            |\n", usuario.score);
-                    printf("|--------------------------------|\n");
+                    printRank(usuario);
                     break;
                 }
                     
                 case 4:{ // Trocar de Usuário
                     // Chamar a troca de usuário
-                    qtdJogadas = 0;
+                    printUsers(usuario);
                     printf("\nNome: ");
                     scanf("%s", aux);
                     NSString *nome = [[NSString alloc] initWithCString:aux encoding:NSASCIIStringEncoding];
-                    usuario = [[User alloc] initWithName:nome];
-                    //scanf("%s",str);
-
+                    usuario = getUser(nome);
                     break;
                 }
             
                 case 5: { //Mostrar quantas vezes o usuário jogou
                     printf("|--------------------------------|\n");
-                    printf("| Quant. de vezes que jogou: %d  |\n", qtdJogadas);
+                    printf("| Quant. de vezes que jogou: %d  |\n", usuario.qtd);
                     printf("|--------------------------------|\n");
                     break;
                 }

@@ -10,7 +10,7 @@
 
 @implementation User
 
-@synthesize score, name;
+@synthesize score, name, qtd;
 
 //construtor do usuário
 -(instancetype)initWithName:(NSString *)n{
