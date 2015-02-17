@@ -115,6 +115,8 @@ void printRank(User *us){
     NSArray *sortArray = [[NSArray alloc] initWithArray:users];
     NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:@"score" ascending:NO];
     sortArray = [sortArray sortedArrayUsingDescriptors:@[sd]];
+    printf("\n|--------------------------------|\n");
+    printf("|---------  RANKING  ------------|\n");
     printf("|--------------------------------|\n");
     for (User *usua in sortArray) {
         if (usua == us){
@@ -128,12 +130,28 @@ void printRank(User *us){
 }
 
 void printUsers(User *us){
+    printf("\n|--------------------------------|\n");
+    printf("|----------  USUARIOS  ----------|\n");
     printf("|--------------------------------|\n");
     for (User *usua in users) {
         if (usua == us){
             MDLog(@"|  You -> %@           \n", usua.name);
         }else{
             MDLog(@"|         %@           \n", usua.name);
+        }
+    }
+    printf("|--------------------------------|\n");
+}
+
+void printQTD(User *us){
+    printf("\n|--------------------------------|\n");
+    printf("|----------  JOGOS  -------------|\n");
+    printf("|--------------------------------|\n");
+    for (User *usua in users) {
+        if (usua == us){
+            MDLog(@"|  You -> %@ : %d            \n", usua.name, usua.qtd);
+        }else{
+            MDLog(@"|         %@ : %d            \n", usua.name, usua.qtd);
         }
     }
     printf("|--------------------------------|\n");
@@ -212,9 +230,7 @@ int main(int argc, const char * argv[]) {
                 }
             
                 case 5: { //Mostrar quantas vezes o usuário jogou
-                    printf("|--------------------------------|\n");
-                    printf("| Quant. de vezes que jogou: %d  |\n", usuario.qtd);
-                    printf("|--------------------------------|\n");
+                    printQTD(usuario);
                     break;
                 }
                 default:{ // Numero errado...
