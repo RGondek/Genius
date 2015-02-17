@@ -10,11 +10,20 @@
 
 @implementation User
 
-@synthesize score, name;
+@synthesize score, name, qtd;
+
+//construtor do usuário
 -(instancetype)initWithName:(NSString *)n{
-//score = 0
+    self = [super init];
+    if (self) {
+        name = n;
+        score = 0;
+        qtd = 0;
+    }
     return self;
 }
+
+//atualiza o Score do usuário
 -(void)gameScore:(int)sc{
     if (sc > score) {
         score = sc;

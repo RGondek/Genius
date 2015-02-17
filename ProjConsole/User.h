@@ -13,7 +13,7 @@
     int score;
     int qtd;
 }
-@property int score;
+@property int score, qtd;
 @property NSString* name;
 
 -(instancetype)initWithName:(NSString*)n;

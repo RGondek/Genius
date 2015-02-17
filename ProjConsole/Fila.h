@@ -13,14 +13,16 @@
 }
 
 -(void)Enfileirar:(NSObject*)elem;
+-(id)init;
+//-(instancetype) initWithRandon:(int)elem;
 -(void)Desenfileirar;
 -(NSObject*)Ler;
 -(BOOL)Vazio;
 
-// Ex 01 - Imprimir a fila
+
 -(void)Imprimir;
 
-// Ex 02 - Verificação de pertinência
+
 -(BOOL)Busca:(NSObject*)obj;
 
 @end

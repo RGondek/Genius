@@ -17,6 +17,41 @@
     return self;
 }
 
+//-(instancetype) initWithRandon:(int)elem
+//{
+//    self = [super init];
+//    if (self) {
+//        elementos = [[NSMutableArray alloc] init];
+//        int qtd = 0;
+//        NSString *color;
+//        while (qtd != elem) {
+//            int ran = rand() * 4;
+//            switch (ran) {
+//                case 1:
+//                    color = @"A";
+//                    break;
+//                case 2:
+//                    color = @"B";
+//                    break;
+//                case 3:
+//                    color = @"C";
+//                    break;
+//                case 4:
+//                    color = @"D";
+//                    break;
+//                default:
+//                    break;
+//            }
+//            
+//            [elementos addObject:color];
+//            qtd ++;
+//        }
+//
+//    }
+//   
+//    return self;
+//}
+
 -(void)Enfileirar:(NSObject *)elem{
     if (elem != nil) {
         [elementos addObject:elem];
