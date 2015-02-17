@@ -6,10 +6,6 @@
 //  Copyright (c) 2015 Ckode. All rights reserved.
 //
 
-
-// Explicação para o uso da estrutura de dados Fila:
-// Como o intuito do jogo é fazer os dados(cores e seus numeros) apresentados ao usuario em um determinado jogo tivesse sempre a mesma ordem independente da jogada, vimos que a estrutura fila é melhor pois o primeiro dado enfileirado é o primeiro dado que será desenfileirado. E com isso garantimos que os dados sigam durante todas as jogadas do jogo a mesma sequencia.
-
 #import <Foundation/Foundation.h>
 #import "User.h"
 #import "Fila.h"
